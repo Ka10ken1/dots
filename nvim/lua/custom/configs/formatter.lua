@@ -94,7 +94,16 @@ require("formatter").setup {
       end,
     },
 
-    -- Use the special "*" filetype for defining formatter configurations on
+    json = {
+      function()
+        return {
+          exe = "jq",
+          args = { ".", "--indent", "2" }, -- You can customize jq options here
+          stdin = true,
+        }
+      end,
+    },
+
     -- any filetype
     ["*"] = {
       -- "formatter.filetypes.any" defines default configurations for any
